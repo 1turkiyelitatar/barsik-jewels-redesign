@@ -8,6 +8,8 @@ import chak from "@/assets/token_chakchak.webp";
 import tub from "@/assets/token_tubeteika.webp";
 import barsik from "@/assets/barsik_cup_cutout_clean.webp";
 import mapBarsik from "@/assets/barsik_map_scout.webp";
+import endWinHero from "@/assets/end_win_hero.webp";
+import endLoseHero from "@/assets/end_lose_hero.webp";
 import bg from "@/assets/bg_kazan.webp";
 
 export const TILE_IMG = [heart, ech, paw, tulip, tea];
@@ -15,4 +17,6 @@ export const TILE_NAME = ["Сердце", "Эчпочмак", "Лапка", "Т�
 export const SPECIAL_IMG = { row: tumbler, col: tumbler, bomb: chak, color: tub };
 export const BARSIK = barsik;
 export const MAP_BARSIK = mapBarsik;
+export const END_WIN_HERO = endWinHero;
+export const END_LOSE_HERO = endLoseHero;
 export const BG = bg;
