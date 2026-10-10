@@ -802,10 +802,10 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
               style={{ width: `${pct}%` }}
             />
             {level.stars.map((s, k) => (
-              <Star
+              <span
                 key={k}
-                size={16}
-                className={`absolute -top-[3px] -translate-x-1/2 ${score >= s ? "fill-gold text-gold" : "fill-muted text-muted-foreground"}`}
+                aria-label={score >= s ? `Звезда ${k + 1} получена` : `Цель для звезды ${k + 1}`}
+                className={`progress-star-marker absolute top-1/2 -translate-x-1/2 -translate-y-1/2 ${score >= s ? "is-earned" : ""}`}
                 style={{ left: `${(s / level.stars[2]) * 100}%` }}
               />
             ))}
