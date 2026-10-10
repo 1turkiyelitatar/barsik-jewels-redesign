@@ -963,7 +963,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
                   alt="Барсик-путешественник"
                   className="result-mascot result-mascot-win relative mx-auto object-contain drop-shadow-xl"
                 />
-                <h2 className="result-title font-display text-3xl text-emerald">Победа!</h2>
+                <div className="result-ribbon result-ribbon-win"><h2 className="result-title font-display text-3xl text-emerald">Победа!</h2></div>
                 <div className="my-3 flex justify-center gap-2">
                   {[0, 1, 2].map((k) => (
                     <div key={k} className="relative" style={{ marginTop: k === 1 ? -10 : 0 }}>
@@ -1036,7 +1036,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
             ) : (
               <>
                 <img src={MAP_BARSIK} alt="Барсик-путешественник" className="result-mascot result-mascot-loss mx-auto object-contain" />
-                <h2 className="result-title result-title-loss font-display text-3xl text-destructive">Ходы закончились</h2>
+                <div className="result-ribbon result-ribbon-loss"><h2 className="result-title result-title-loss font-display text-3xl text-destructive">Не получилось</h2></div>
                 <p className="mt-2 text-muted-foreground">
                   Немного не хватило! Барсик верит, что в следующий раз получится.
                 </p>
