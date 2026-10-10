@@ -231,7 +231,6 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
   const goalEls = useRef<(HTMLDivElement | null)[]>([]);
   const [bad, setBad] = useState<Set<number>>(new Set());
   const [state, setState] = useState<"play" | "win" | "lose">("play");
-  const [frenzy, setFrenzy] = useState(false);
   const [shown, setShown] = useState(0);
   const [starsIn, setStarsIn] = useState(0);
   useEffect(() => {
@@ -547,8 +546,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
   const finishTurn = async () => {
     if (!mounted.current) return;
     if (goalsComplete(level, goalsRef.current, scoreRef.current)) {
-      // frenzy: each remaining move bursts a random tile into a golden salute
-      setFrenzy(true);
+      // Bonus cascade uses remaining moves after goals are completed.
       await sleep(400);
       let left = movesRef.current,
         n = 0;
