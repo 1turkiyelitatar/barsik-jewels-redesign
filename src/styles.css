@@ -963,3 +963,39 @@ body { font-family: var(--font-sans); }
   box-shadow: 0 0 0 1px rgba(126,83,8,.42), 0 0 7px rgba(247,193,55,.55);
 }
 .game-screen .relative.mt-2.h-3.rounded-full { overflow: visible; }
+
+/* Ribbon headings echo the approved illustrated result cards */
+.result-ribbon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px -9px 10px;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 2px solid #f3c34b;
+  border-radius: 14px 14px 20px 20px;
+  box-shadow: 0 4px 0 rgba(99,71,17,.24), inset 0 2px 0 rgba(255,255,255,.3);
+  transform: rotate(-1deg);
+}
+.result-ribbon::before,
+.result-ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  width: 18px;
+  height: 18px;
+  z-index: -1;
+  background: inherit;
+  border-bottom: 2px solid #e6b331;
+}
+.result-ribbon::before { left: -4px; transform: skewY(25deg); }
+.result-ribbon::after { right: -4px; transform: skewY(-25deg); }
+.result-ribbon-win { background: linear-gradient(180deg,#078c4c,#006b39); }
+.result-ribbon-loss { background: linear-gradient(180deg,#31526a,#172f4a); }
+.result-ribbon .result-title,
+.result-ribbon .result-title-loss { margin: 0; color: #fff9df !important; text-shadow: 0 2px 0 rgba(0,0,0,.16); }
+.result-ribbon-loss .result-title { font-size: clamp(23px,4.5vw,30px); }
+@media (max-width:520px) {
+  .result-ribbon { min-height: 38px; margin-bottom: 8px; padding: 6px 12px; }
+}
