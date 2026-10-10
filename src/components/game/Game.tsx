@@ -570,7 +570,6 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
         }
         n++;
       }
-      setFrenzy(false);
       await sleep(250);
       if (!mounted.current) return;
       onWin(levelN, scoreRef.current, Math.max(1, starsFor(scoreRef.current, level)));
