@@ -15,7 +15,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { getLevel } from "@/lib/match3";
 import { LEVEL_COUNT, LEVEL_POINTS, LOCATIONS, totalStars, type Progress } from "@/lib/saga";
 import mapImage from "@/assets/kazan-map-15.webp";
-import { BARSIK, TILE_IMG, TILE_NAME } from "./assets";
+import { MAP_BARSIK, TILE_IMG, TILE_NAME } from "./assets";
 import { LOCATION_IMG } from "./locationImages";
 import { sfx } from "@/lib/sfx";
 
@@ -193,7 +193,7 @@ export default function SagaMap({
                   ["--y2" as string]: `${to.y}%`,
                 }}
               >
-                <img src={BARSIK} alt="" />
+                <img src={MAP_BARSIK} alt="" />
               </span>
             )}
             {anim && LEVEL_POINTS[anim - 1] && (
@@ -232,7 +232,7 @@ export default function SagaMap({
                 >
                   {active && anim !== n && (
                     <span className="saga-avatar">
-                      <img src={BARSIK} alt="Барсик" />
+                      <img src={MAP_BARSIK} alt="Барсик-путешественник" />
                     </span>
                   )}
                   <span>{n}</span>
