@@ -950,13 +950,6 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
         </div>
       </div>
 
-      {frenzy && (
-        <div className="pointer-events-none fixed inset-x-0 top-1/3 z-40 text-center">
-          <div className="animate-frenzy inline-block rounded-2xl border-4 border-gold bg-card px-6 py-2 font-display text-3xl text-emerald shadow-[var(--shadow-card)]">
-            Салют Барсика!
-          </div>
-        </div>
-      )}
       {state !== "play" && (
         <div className="fixed inset-0 z-50 grid place-items-center bg-foreground/70 p-4">
           <div
