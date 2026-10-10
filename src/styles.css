@@ -343,3 +343,89 @@ body { font-family: var(--font-sans); }
 .loc-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, color-mix(in oklab, var(--foreground) 35%, transparent)); }
 .loc-chip { position: absolute; z-index: 1; top: 10px; left: 10px; padding: 3px 10px; border-radius: 999px; background: var(--gold); color: var(--foreground); font-family: var(--font-display); font-size: 13px; box-shadow: 0 2px 0 color-mix(in oklab, var(--gold) 55%, var(--foreground)); }
 @media (max-height: 640px) { .loc-cover { height: 110px; } }
+
+
+/* Premium Kazan journey map HUD — visual-only refinement */
+.saga-shell {
+  background:
+    radial-gradient(ellipse at 12% 8%, oklch(0.95 0.09 165 / .55), transparent 38%),
+    linear-gradient(145deg, oklch(0.88 0.055 175), oklch(0.82 0.08 190));
+}
+.saga-header {
+  gap: 10px;
+  padding: 14px 20px 13px;
+  border: 1px solid oklch(0.78 0.15 85);
+  border-radius: 24px;
+  background: linear-gradient(135deg, oklch(0.99 0.018 92 / .97), oklch(0.96 0.035 92 / .95));
+  box-shadow: 0 14px 28px oklch(0.22 0.06 165 / .18), 0 3px 0 oklch(0.72 0.13 82 / .65), inset 0 1px 0 white;
+  backdrop-filter: blur(14px);
+}
+.saga-header > div:first-child > span {
+  width: 46px;
+  height: 46px;
+  color: oklch(0.98 0.02 95);
+  background: linear-gradient(145deg, oklch(0.56 0.16 151), oklch(0.39 0.13 154));
+  border: 2px solid oklch(0.77 0.14 84);
+  box-shadow: 0 3px 0 oklch(0.34 0.1 153), 0 5px 12px oklch(0.36 0.1 150 / .18);
+}
+.saga-header h1 {
+  font-size: clamp(16px, 2.1vw, 21px);
+  letter-spacing: -.035em;
+  color: oklch(0.43 0.15 151);
+}
+.saga-header p {
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: .015em;
+}
+.saga-header > div:last-child {
+  border-top: 1px solid oklch(0.75 0.13 84 / .38);
+  padding-top: 9px;
+}
+.saga-header > div:last-child > div:first-child {
+  gap: 9px;
+  color: oklch(0.29 0.08 155);
+}
+.saga-header > div:last-child > div:first-child svg {
+  filter: drop-shadow(0 2px 1px oklch(0.58 0.13 82 / .25));
+}
+.saga-header button {
+  min-height: 40px;
+  border: 1px solid oklch(0.8 0.08 86 / .7);
+  box-shadow: 0 2px 5px oklch(0.28 0.05 150 / .09), inset 0 1px 0 white;
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.saga-header button:active { transform: translateY(1px) scale(.98); }
+.saga-header button:last-child {
+  padding-inline: 13px;
+  background: linear-gradient(180deg, oklch(0.98 0.045 91), oklch(0.93 0.07 88));
+  color: oklch(0.42 0.13 151);
+  border-color: oklch(0.83 0.12 83);
+}
+.saga-scroll {
+  scrollbar-color: oklch(0.5 0.13 153 / .7) oklch(0.87 0.05 178);
+}
+.saga-node {
+  border-width: 3px;
+  box-shadow: 0 4px 0 oklch(0.34 0.09 154), 0 7px 13px oklch(0.2 0.05 165 / .28);
+}
+.saga-node-current {
+  box-shadow: 0 0 0 5px oklch(0.99 0.03 91 / .6), 0 4px 0 oklch(0.63 0.13 81), 0 8px 15px oklch(0.2 0.05 165 / .3);
+}
+.saga-avatar {
+  border: 2px solid oklch(0.98 0.03 92);
+  box-shadow: 0 2px 8px oklch(0.22 0.05 155 / .28);
+}
+@media (min-width: 769px) {
+  .saga-header { left: 20px; right: 20px; padding: 15px 22px 14px; }
+  .saga-scroll { padding-top: 205px; }
+}
+@media (max-width: 480px) {
+  .saga-header { left: 8px; right: 8px; padding: 10px 12px; border-radius: 20px; gap: 8px; }
+  .saga-header > div:first-child > span { width: 40px; height: 40px; }
+  .saga-header h1 { font-size: 16px; }
+  .saga-header p { font-size: 11px; }
+  .saga-header > div:last-child { padding-top: 7px; }
+  .saga-header button { min-height: 36px; }
+  .saga-scroll { padding-top: 174px; }
+}
