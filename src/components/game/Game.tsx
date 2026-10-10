@@ -31,7 +31,7 @@ import {
 import { sfx } from "@/lib/sfx";
 import { Button } from "@/components/ui/button";
 import { LEVEL_COUNT, LOCATIONS } from "@/lib/saga";
-import { TILE_IMG, TILE_NAME, SPECIAL_IMG, BARSIK, BG } from "./assets";
+import { TILE_IMG, TILE_NAME, SPECIAL_IMG, BARSIK, MAP_BARSIK, BG } from "./assets";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 type Particle = {
@@ -953,15 +953,15 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
             role="dialog"
             aria-modal="true"
             aria-label={state === "win" ? "Победа" : "Ходы закончились"}
-            className={`result-panel relative w-full max-w-sm animate-modal rounded-3xl border-4 border-gold bg-card p-5 text-center shadow-[var(--shadow-card)] ${state === "win" ? "result-panel-win" : "result-panel-loss"}`}
+            className={`result-panel relative w-full max-w-sm animate-modal text-center ${state === "win" ? "result-panel-win" : "result-panel-loss"}`}
           >
             {state === "win" ? (
               <>
                 <div className="pointer-events-none absolute left-1/2 top-10 -z-0 h-64 w-64 -translate-x-1/2 animate-rays rounded-full win-rays" />
                 <img
-                  src={BARSIK}
-                  alt="Барсик с кубком"
-                  className="result-mascot relative mx-auto -mt-24 h-52 animate-barsik object-contain drop-shadow-xl"
+                  src={MAP_BARSIK}
+                  alt="Барсик-путешественник"
+                  className="result-mascot result-mascot-win relative mx-auto object-contain drop-shadow-xl"
                 />
                 <h2 className="result-title font-display text-3xl text-emerald">Победа!</h2>
                 <div className="my-3 flex justify-center gap-2">
@@ -1035,7 +1035,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
               </>
             ) : (
               <>
-                <img src={BARSIK} alt="Барсик" className="result-mascot result-mascot-loss mx-auto -mt-16 h-32 object-contain" />
+                <img src={MAP_BARSIK} alt="Барсик-путешественник" className="result-mascot result-mascot-loss mx-auto object-contain" />
                 <h2 className="result-title result-title-loss font-display text-3xl text-destructive">Ходы закончились</h2>
                 <p className="mt-2 text-muted-foreground">
                   Немного не хватило! Барсик верит, что в следующий раз получится.
