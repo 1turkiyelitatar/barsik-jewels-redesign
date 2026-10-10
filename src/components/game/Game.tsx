@@ -981,8 +981,24 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
                     </div>
                   ))}
                 </div>
-                <div className="text-sm text-muted-foreground">Очки</div>
-                <div className="font-display text-4xl tabular-nums text-foreground">{shown}</div>
+                <div className="result-score">
+                  <div className="text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">Ваш счёт</div>
+                  <div className="font-display text-4xl tabular-nums text-foreground">{shown}</div>
+                  {levelN < LEVEL_COUNT && (
+                    <div className="result-level-label">Уровень {levelN} пройден</div>
+                  )}
+                </div>
+                <div className="result-goals mt-3">
+                  <div className="mb-2 text-left text-xs font-extrabold uppercase tracking-wider text-muted-foreground">Цели уровня</div>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {level.goals.map((g, k) => (
+                      <div key={k} className="result-goal-chip">
+                        <img src={TILE_IMG[g.t]} alt={TILE_NAME[g.t]} />
+                        <span>{Math.max(0, g.n - (goals[k] ?? 0)) === 0 ? "✓" : goals[k] ?? 0}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <div className="mt-4 grid gap-3">
                   {levelN < LEVEL_COUNT ? (
                     <button
@@ -1023,7 +1039,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
                 <img src={BARSIK} alt="Барсик" className="result-mascot result-mascot-loss mx-auto -mt-16 h-32 object-contain" />
                 <h2 className="result-title result-title-loss font-display text-3xl text-destructive">Ходы закончились</h2>
                 <p className="mt-2 text-muted-foreground">
-                  Барсик верит в тебя — попробуй ещё раз!
+                  Немного не хватило! Барсик верит, что в следующий раз получится.
                 </p>
                 {level.goals.some((_, k) => (goals[k] ?? 0) > 0) && (
                   <div className="mt-3">
@@ -1047,7 +1063,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
                     </div>
                   </div>
                 )}
-                <div className="mt-4 grid gap-2">
+                <div className="result-score mt-3"><div className="text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">Ваш счёт</div><div className="font-display text-3xl tabular-nums text-foreground">{shown}</div></div><div className="mt-4 grid gap-2">
                   <button
                     type="button"
                     onClick={() => start(levelN)}
