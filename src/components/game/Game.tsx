@@ -31,7 +31,7 @@ import {
 import { sfx } from "@/lib/sfx";
 import { Button } from "@/components/ui/button";
 import { LEVEL_COUNT, LOCATIONS } from "@/lib/saga";
-import { TILE_IMG, TILE_NAME, SPECIAL_IMG, BARSIK, MAP_BARSIK, BG } from "./assets";
+import { TILE_IMG, TILE_NAME, SPECIAL_IMG, BARSIK, MAP_BARSIK, END_WIN_HERO, END_LOSE_HERO, BG } from "./assets";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 type Particle = {
@@ -959,11 +959,11 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
               <>
                 <div className="pointer-events-none absolute left-1/2 top-10 -z-0 h-64 w-64 -translate-x-1/2 animate-rays rounded-full win-rays" />
                 <img
-                  src={MAP_BARSIK}
-                  alt="Барсик-путешественник"
+                  src={END_WIN_HERO}
+                  alt="Барсик празднует победу"
                   className="result-mascot result-mascot-win relative mx-auto object-contain drop-shadow-xl"
                 />
-                <div className="result-ribbon result-ribbon-win"><h2 className="result-title font-display text-3xl text-emerald">Победа!</h2></div>
+                <h2 className="result-title result-title-win font-display text-3xl">Победа!</h2>
                 <div className="my-3 flex justify-center gap-2">
                   {[0, 1, 2].map((k) => (
                     <div key={k} className="relative" style={{ marginTop: k === 1 ? -10 : 0 }}>
@@ -1035,8 +1035,8 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
               </>
             ) : (
               <>
-                <img src={MAP_BARSIK} alt="Барсик-путешественник" className="result-mascot result-mascot-loss mx-auto object-contain" />
-                <div className="result-ribbon result-ribbon-loss"><h2 className="result-title result-title-loss font-display text-3xl text-destructive">Не получилось</h2></div>
+                <img src={END_LOSE_HERO} alt="Барсик расстроен после неудачи" className="result-mascot result-mascot-loss mx-auto object-contain" />
+                <h2 className="result-title result-title-loss font-display text-3xl">Не получилось</h2>
                 <p className="mt-2 text-muted-foreground">
                   Немного не хватило! Барсик верит, что в следующий раз получится.
                 </p>
