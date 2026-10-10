@@ -716,11 +716,11 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
   };
 
   return (
-    <div className="relative min-h-[100dvh] w-full overflow-hidden select-none touch-none">
-      <img src={BG} alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/0 to-background/40" />
+    <div className="game-screen relative min-h-[100dvh] w-full overflow-hidden select-none touch-none">
+      <img src={BG} alt="" className="game-background absolute inset-0 h-full w-full object-cover" />
+      <div className="game-background-shade absolute inset-0 bg-gradient-to-b from-background/10 via-background/0 to-background/40" />
 
-      <div className="relative mx-auto flex min-h-[100dvh] max-w-[560px] flex-col items-center gap-3 px-3 py-3">
+      <div className="game-layout relative mx-auto flex min-h-[100dvh] w-full max-w-[1180px] flex-col items-center gap-3 px-3 py-3">
         <div className="flex w-full items-center justify-between gap-2">
           <Button onClick={onMap} variant="secondary" size="sm" className="rounded-full">
             <ArrowLeft />
@@ -731,7 +731,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
           </span>
         </div>
         {/* HUD */}
-        <div className="w-full rounded-3xl border-2 border-gold bg-card/90 p-3 shadow-[var(--shadow-card)]">
+        <div className="game-hud w-full rounded-3xl border-2 border-gold bg-card/90 p-3 shadow-[var(--shadow-card)]">
           <div className="flex items-center justify-between gap-2">
             <div className="min-w-0">
               <h1 className="truncate font-display text-lg leading-tight text-emerald sm:text-xl">
@@ -817,7 +817,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
 
         {/* Board */}
         <div
-          className={`relative aspect-square w-full max-w-[min(100%,calc(100dvh-270px))] rounded-3xl border-4 border-gold bg-card/95 p-1.5 shadow-[var(--shadow-card)] ${shake ? "animate-shake" : ""} ${bad.size ? "animate-board-bad" : ""}`}
+          className={`game-board relative aspect-square w-full max-w-[min(100%,calc(100dvh-270px))] rounded-3xl border-4 border-gold bg-card/95 p-1.5 shadow-[var(--shadow-card)] ${shake ? "animate-shake" : ""} ${bad.size ? "animate-board-bad" : ""}`}
         >
           <div
             ref={boardEl}
