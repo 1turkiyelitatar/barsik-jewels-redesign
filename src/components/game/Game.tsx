@@ -954,7 +954,7 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
             role="dialog"
             aria-modal="true"
             aria-label={state === "win" ? "Победа" : "Ходы закончились"}
-            className="relative w-full max-w-sm animate-modal rounded-3xl border-4 border-gold bg-card p-5 text-center shadow-[var(--shadow-card)]"
+            className={`result-panel relative w-full max-w-sm animate-modal rounded-3xl border-4 border-gold bg-card p-5 text-center shadow-[var(--shadow-card)] ${state === "win" ? "result-panel-win" : "result-panel-loss"}`}
           >
             {state === "win" ? (
               <>
@@ -962,9 +962,9 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
                 <img
                   src={BARSIK}
                   alt="Барсик с кубком"
-                  className="relative mx-auto -mt-24 h-52 animate-barsik object-contain drop-shadow-xl"
+                  className="result-mascot relative mx-auto -mt-24 h-52 animate-barsik object-contain drop-shadow-xl"
                 />
-                <h2 className="font-display text-3xl text-emerald">Победа!</h2>
+                <h2 className="result-title font-display text-3xl text-emerald">Победа!</h2>
                 <div className="my-3 flex justify-center gap-2">
                   {[0, 1, 2].map((k) => (
                     <div key={k} className="relative" style={{ marginTop: k === 1 ? -10 : 0 }}>
@@ -1020,8 +1020,8 @@ export default function Game({ initialLevel, mute, toggleMute, onMap, onNext, on
               </>
             ) : (
               <>
-                <img src={BARSIK} alt="Барсик" className="mx-auto -mt-16 h-32 object-contain" />
-                <h2 className="font-display text-3xl text-destructive">Ходы закончились</h2>
+                <img src={BARSIK} alt="Барсик" className="result-mascot result-mascot-loss mx-auto -mt-16 h-32 object-contain" />
+                <h2 className="result-title result-title-loss font-display text-3xl text-destructive">Ходы закончились</h2>
                 <p className="mt-2 text-muted-foreground">
                   Барсик верит в тебя — попробуй ещё раз!
                 </p>
